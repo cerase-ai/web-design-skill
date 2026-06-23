@@ -1,7 +1,6 @@
 ---
-slug: web-design
+name: web-design
 description: "Genera pagine HTML/CSS responsive da un brief: landing page, one-pager, mini-sito statico. Output: file `.html` autocontenuto, mobile-first, leggibile su mobile + desktop. Da usare quando l'utente chiede \"fammi una landing\", \"una pagina web\", \"un sito di una pagina sola\" o equivalenti."
-is_core: false
 ---
 # Web design — landing / one-pager statici
 
