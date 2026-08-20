@@ -1,6 +1,6 @@
 ---
 name: web-design
-description: "Genera pagine HTML/CSS responsive da un brief: landing page, one-pager, mini-sito statico. Output: file `.html` autocontenuto, mobile-first, leggibile su mobile + desktop. Da usare quando l'utente chiede \"fammi una landing\", \"una pagina web\", \"un sito di una pagina sola\" o equivalenti."
+description: "Generates responsive HTML/CSS pages from a brief: landing page, one-pager, static mini-site. Output: a self-contained, mobile-first `.html` file, readable on mobile + desktop. Use when the user asks for \"a landing page\", \"a web page\", \"a single-page site\" or the like."
 ---
 # Web design — landing / one-pager statici
 
