@@ -2,68 +2,68 @@
 name: web-design
 description: "Generates responsive HTML/CSS pages from a brief: landing page, one-pager, static mini-site. Output: a self-contained, mobile-first `.html` file, readable on mobile + desktop. Use when the user asks for \"a landing page\", \"a web page\", \"a single-page site\" or the like."
 ---
-# Web design — landing / one-pager statici
+# Web design — static landing pages and one-pagers
 
-Genera una pagina HTML autocontenuta (HTML + CSS inline + minimo JS opzionale) da un brief. Pensata per landing page, one-pager prodotto/servizio, mini-sito statico. Per app interattive vere usa `artifacts-builder` (se installata) o delega al team frontend.
+Generate a self-contained HTML page (HTML + inline CSS + optionally a little JS) from a brief. Written for landing pages, product or service one-pagers and small static sites. For a genuinely interactive app use `artifacts-builder` if it is installed, or hand the work to the frontend team.
 
-## Quando attivare
+## When to use it
 
-Trigger tipici:
+Typical triggers:
 - "fammi una landing per il prodotto X"
 - "voglio una pagina web di presentazione"
 - "genera un one-pager su questa offerta"
 - `source-to-artifact` con `target_format=html` e `target_kind=site/landing`
 
-NON attivare per:
-- presentazioni che vogliono diventare slide → `deck`
-- documenti formali → `docx` / `pdf-writer`
-- componenti React/Vue / app vere → non è scope di questa skill
+Do NOT use it for:
+- material that wants to become slides → `deck`
+- formal documents → `docx` / `pdf-writer`
+- React or Vue components and real applications → out of scope here
 
 ## Stage 1 — brief (interview)
 
-Raccogli, una domanda alla volta:
-1. **Obiettivo della pagina**: vendere un prodotto / raccogliere lead / spiegare un servizio / hub-and-link?
-2. **Pubblico**: chi atterra qui? (B2B / B2C / interno aziendale)
-3. **Sezioni necessarie**: hero, features, prezzi, testimonial, FAQ, footer? Quante?
-4. **Brand**: hai un colore primario, un font, un logo? (URL/path al logo se ne hai uno)
-5. **CTA principale**: cosa deve fare il visitatore? (compila form, scrivere email, chiamare, prenotare demo)
+Ask one question at a time, and collect:
+1. **What the page is for**: sell a product, collect leads, explain a service, or hub and link?
+2. **Audience**: who lands here — B2B, B2C, or people inside the company?
+3. **Sections needed**: hero, features, pricing, testimonials, FAQ, footer? How many?
+4. **Brand**: is there a primary colour, a typeface, a logo? Take the URL or path of the logo if there is one.
+5. **Main call to action**: what should the visitor do — fill a form, send an email, phone, book a demo?
 
-Salva il brief in `web-design-brief.md` nel workspace.
+Save the brief as `web-design-brief.md` in the workspace.
 
-## Stage 2 — wireframe testuale
+## Stage 2 — wireframe in text
 
-Produci `web-design-wireframe.md` con la struttura per sezione: titolo + 1-2 frasi descrizione + eventuali bullet/link. Mostralo all'utente e chiedi conferma prima di scrivere HTML.
+Produce `web-design-wireframe.md` holding the structure section by section: a title, one or two sentences of description, and any bullets or links. Show it to the colleague and get their agreement before writing any HTML.
 
-## Stage 3 — HTML autocontenuto
+## Stage 3 — self-contained HTML
 
-Produci `<filename>.html` (default `landing.html`) con questi vincoli:
-- **Single file**: HTML + CSS inline `<style>`; niente import esterni eccetto eventuale 1 font Google (`<link rel="preconnect">` + `<link rel="stylesheet">`).
-- **Responsive mobile-first**: layout con CSS Grid / Flexbox + media query base (`@media (min-width: 768px)`).
-- **Niente framework**: no Bootstrap/Tailwind/jQuery. Solo HTML5 semantico + CSS.
-- **Performance**: target `<50KB` totali. Inline solo l'essenziale.
-- **Accessibility baseline**: lang attribute, alt text su immagini, contrasto AA, focus visible.
-- **Sezioni semantiche**: `<header> <main> <section> <footer>` invece di `<div>` everywhere.
+Produce `<filename>.html`, default `landing.html`, under these constraints:
+- **Single file**: HTML plus inline CSS in `<style>`. No external import except at most one Google font (`<link rel="preconnect">` and `<link rel="stylesheet">`).
+- **Responsive, mobile first**: CSS Grid or Flexbox with a base media query (`@media (min-width: 768px)`).
+- **No framework**: no Bootstrap, no Tailwind, no jQuery. Semantic HTML5 and CSS.
+- **Performance**: aim under 50KB in total. Inline only what is needed.
+- **Accessibility baseline**: a lang attribute, alt text on images, AA contrast, a visible focus state.
+- **Semantic sections**: `<header> <main> <section> <footer>` rather than a `<div>` for everything.
 
-Salva nel workspace, attacca alla risposta.
+Save it in the workspace and attach it to the reply.
 
-## Stage 4 — varianti opzionali (solo se richieste)
+## Stage 4 — optional variants, only when asked for
 
-L'utente può chiedere:
-- **PDF della landing** → encode HTML in base64 + `call_recipe("cerase-office-converter.convert_html_to_pdf", {input_b64: ...})` → salva `.pdf` in workspace
-- **Versione dark/light theme** → genera 2 file `<filename>-light.html` + `<filename>-dark.html`
-- **Modifiche al copy** → riapri il file, applica le modifiche, salva.
+The colleague may ask for:
+- **the landing as a PDF** → encode the HTML as base64 and `call_recipe("cerase-office-converter.convert_html_to_pdf", {input_b64: ...})`, then save the `.pdf` in the workspace
+- **a dark and a light version** → produce two files, `<filename>-light.html` and `<filename>-dark.html`
+- **copy changes** → reopen the file, apply them, save.
 
 ## Style rules
 
-- **Tipografia**: max 2 famiglie di font (1 heading, 1 body). Heading più pesante (600-700), body 400. Line-height ≥ 1.5 per body.
-- **Colori**: 1 primary + 1 accent + neutrali (bianco / 2-3 grigi + nero). Niente arcobaleno.
-- **Hero**: 1 titolo (h1) + 1 sottotitolo + 1 CTA principale + immagine/illustrazione opzionale. Sopra il fold.
-- **Spaziature generose**: `padding: 60px 24px` per section desktop, `padding: 40px 16px` per mobile.
-- **Niente animazioni distraenti**: max 1 fade-in sulla hero, niente parallax / scroll-jacking.
+- **Type**: at most two families, one for headings and one for body. Headings heavier (600-700), body 400. Body line-height 1.5 or more.
+- **Colour**: one primary, one accent, and neutrals — white, two or three greys, black. No rainbow.
+- **Hero**: one `h1`, one subtitle, one main call to action, optionally an image or illustration. Above the fold.
+- **Generous spacing**: `padding: 60px 24px` per section on desktop, `padding: 40px 16px` on mobile.
+- **No distracting animation**: at most one fade-in on the hero. No parallax, no scroll-jacking.
 
 ## Don't
 
-- Don't embed remote images senza fallback (l'utente potrebbe aprire la pagina offline / con immagini bloccate).
-- Don't infilare tracker / pixel di terzi senza che l'utente lo abbia chiesto esplicitamente.
-- Don't pretendere di essere un sito multi-pagina: questa skill è per pagine singole. Se servono più pagine, dillo all'utente e proponi di farne una alla volta.
-- Don't usare lorem ipsum nel risultato finale. Se manca il copy reale, chiedi all'utente o usa placeholder marcati visibilmente (`[INSERIRE QUI: titolo cliente]`).
+- Don't embed a remote image with no fallback — the page may be opened offline, or with images blocked.
+- Don't slip in a third-party tracker or pixel unless it was asked for explicitly.
+- Don't pretend to be a multi-page site. This skill makes single pages; when more are needed, say so and offer to do them one at a time.
+- Don't leave lorem ipsum in the result. When the real copy is missing, ask for it or use a placeholder that is visibly marked, such as `[INSERIRE QUI: titolo cliente]`.
