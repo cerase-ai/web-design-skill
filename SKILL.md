@@ -9,10 +9,10 @@ Generate a self-contained HTML page (HTML + inline CSS + optionally a little JS)
 ## When to use it
 
 Typical triggers:
-- "fammi una landing per il prodotto X"
-- "voglio una pagina web di presentazione"
-- "genera un one-pager su questa offerta"
-- `source-to-artifact` con `target_format=html` e `target_kind=site/landing`
+- "build me a landing page for product X"
+- "I want a web page introducing us"
+- "generate a one-pager about this offer"
+- `source-to-artifact` with `target_format=html` and `target_kind=site/landing`
 
 Do NOT use it for:
 - material that wants to become slides → `deck`
