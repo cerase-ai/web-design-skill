@@ -4,7 +4,7 @@ description: "Generates responsive HTML/CSS pages from a brief: landing page, on
 ---
 # Web design — static landing pages and one-pagers
 
-Generate a self-contained HTML page (HTML + inline CSS + optionally a little JS) from a brief. Written for landing pages, product or service one-pagers and small static sites. For a genuinely interactive app use `artifacts-builder` if it is installed, or hand the work to the frontend team.
+Generate a self-contained HTML page (HTML + inline CSS + optionally a little JS) from a brief. Written for landing pages, product or service one-pagers and small static sites. A genuinely interactive application is not a page: say so, and that the work belongs to a developer.
 
 ## When to use it
 
@@ -44,12 +44,12 @@ Produce `<filename>.html`, default `landing.html`, under these constraints:
 - **Accessibility baseline**: a lang attribute, alt text on images, AA contrast, a visible focus state.
 - **Semantic sections**: `<header> <main> <section> <footer>` rather than a `<div>` for everything.
 
-Save it in the workspace and attach it to the reply.
+Save it in the workspace with your write tool and attach it: `[[attach: <filename>.html]]`.
 
 ## Stage 4 — optional variants, only when asked for
 
 The colleague may ask for:
-- **the landing as a PDF** → encode the HTML as base64 and `call_recipe("cerase-office-converter.convert_html_to_pdf", {input_b64: ...})`, then save the `.pdf` in the workspace
+- **the landing as a PDF** → `call_recipe("cerase-office-converter.convert_html_to_pdf", {"path": "<filename>.html", "output_filename": "<filename>.pdf"})`. It prints the page the way a browser does, keeping the grid, the flexbox layout and the background colours, on A4 portrait; add `"orientation": "landscape"` for a wide page. It answers `{path, filename, size_bytes}`: attach it with `[[attach: outputs/<filename>.pdf]]`. An image the page names by a relative path is not found by the converter, so for the PDF put images inline as `data:` URIs or link them by https URL
 - **a dark and a light version** → produce two files, `<filename>-light.html` and `<filename>-dark.html`
 - **copy changes** → reopen the file, apply them, save.
 

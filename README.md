@@ -30,9 +30,15 @@ fade-in. No remote image without a fallback, no tracker unless asked for, no
 lorem ipsum: missing copy gets a visibly marked placeholder. A request for
 several pages is done one page at a time.
 
-For the PDF variant the skill calls
-`cerase-office-converter.convert_html_to_pdf`, which the converter does not
-provide today, so that variant fails.
+For the PDF variant the assistant calls
+`cerase-office-converter.convert_html_to_pdf` with the page's workspace path,
+so that variant needs the `cerase-office-converter` connector. The converter
+prints the page with headless Chromium, keeping the grid, the flexbox layout
+and the background colours, on A4 portrait, or landscape for a wide page. It
+writes the PDF to `outputs/` in the workspace and returns its path, and the
+assistant attaches it with `[[attach: <path>]]`. The converter receives the
+HTML file alone, so for the PDF images go inline as `data:` URIs or are linked
+by https URL.
 
 ## Files
 
