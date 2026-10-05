@@ -4,6 +4,6 @@
   "name": "web-design",
   "type": "skill",
   "display_name": "Web Design",
-  "description": "Generates responsive HTML/CSS pages from a brief: landing page, one-pager, static mini-site. Output: a self-contained, mobile-first `.html` file, readable on mobile + desktop. Use when the user asks for \"a landing page\", \"a web page\", \"a single-page site\" or the like.",
+  "description": "Generates responsive HTML/CSS pages from a brief: landing page, one-pager, static mini-site. Output: a self-contained, mobile-first `.html` file, readable on mobile + desktop, and on request a PDF of the page printed through the office converter. Use when the user asks for \"a landing page\", \"a web page\", \"a single-page site\" or the like.",
   "license": "MIT"
 }

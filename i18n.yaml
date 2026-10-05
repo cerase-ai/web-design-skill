@@ -6,4 +6,4 @@
 # of the bundle that ships to the agent.
 it:
   display_name: "Web Design"
-  description: "Genera pagine HTML/CSS responsive da un brief: landing page, one-pager, mini-sito statico. Output: file `.html` autocontenuto, mobile-first, leggibile su mobile + desktop. Da usare quando l'utente chiede \\\"fammi una landing\\\", \\\"una pagina web\\\", \\\"un sito di una pagina sola\\\" o equivalenti."
+  description: "Genera pagine HTML/CSS responsive da un brief: landing page, one-pager, mini-sito statico. Output: file `.html` autocontenuto, mobile-first, leggibile su mobile + desktop, e su richiesta il PDF della pagina stampato dal convertitore di documenti. Da usare quando l'utente chiede \\\"fammi una landing\\\", \\\"una pagina web\\\", \\\"un sito di una pagina sola\\\" o equivalenti."
